@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.appinfodb.dao.app_info.App_InfoMapper">
+	<!-- 根据条件查询App信息列表 -->
+	<select id="getApp_InfoList" parameterType="App_Info" resultMap="App_InfoList">
+		select info.id,info.APKName,info.softwareName,info.softwareSize,info.`status`,info.downloads,
+		dictionary.valueName as flatformName,dictionary1.valueName as statusName,
+		category1.categoryName as categoryLevel1Name,category2.categoryName as categoryLevel2Name,category3.categoryName as categoryLevel3Name,
+		version.versionNo,info.versionId from 
+		app_info info  inner join
+		data_dictionary dictionary inner join
+		data_dictionary dictionary1 inner JOIN
+		app_category category1 inner join
+		app_category category2 inner join
+		app_category category3 LEFT JOIN 
+		app_version version on info.versionId=version.id
+		where 
+		info.flatformid = dictionary.valueId AND 
+		dictionary.typeName = '所属平台' AND
+		info.`status` = dictionary1.valueId AND
+		dictionary1.typeName = 'APP状态' AND
+		category1.id = info.categoryLevel1 and
+		category2.id = info.categoryLevel2 and
+		category3.id = info.categoryLevel3
+		ORDER BY info.id
+		LIMIT #{currentPageNo},#{PageSize}
+	</select>
+	<!-- 根据条件查询app信息数量 -->
+	<select id="getApp_InfoCount" parameterType="App_Info" resultType="Integer">
+		SELECT COUNT(1) FROM app_info
+	</select>
+	<resultMap type="App_Info" id="App_InfoList"></resultMap>
+</mapper>
