@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.appinfodb.dao.app_category.App_CategoryMapper">
+	<select id="categoryLevel1List" resultMap="App_CategoryList">
+		SELECT id,categoryName FROM app_category WHERE parentId =#{parentId};
+	</select>
+	<resultMap type="App_Category" id="App_CategoryList"></resultMap>
+</mapper>

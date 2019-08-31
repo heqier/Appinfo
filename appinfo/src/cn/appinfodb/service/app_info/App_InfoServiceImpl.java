@@ -37,4 +37,30 @@ public class App_InfoServiceImpl implements App_InfoService{
 		return count;
 	}
 
+	@Override
+	public boolean addApp_Info(App_Info info) {
+		boolean flag=false;
+		try {
+			if(infoMapper.addApp_Info(info)==1) {
+				flag=true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
+	@Override
+	public App_Info getApp_InfoByAPKName(String APKName) {
+		App_Info info=null;
+		try {
+			info=infoMapper.getApp_InfoByAPKName(APKName);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return info;
+	}
+
 }

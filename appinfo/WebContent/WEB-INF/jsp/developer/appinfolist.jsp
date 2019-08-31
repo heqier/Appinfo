@@ -20,7 +20,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">软件名称</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<input name="querySoftwareName" type="text" class="form-control col-md-7 col-xs-12" value="${querySoftwareName }">
+								<input name="softwareName" type="text" class="form-control col-md-7 col-xs-12" value="${querySoftwareName}">
 							</div>
 						</div>
 					</li>
@@ -29,7 +29,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">APP状态</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<select name="queryStatus" class="form-control">
+								<select name="status" class="form-control">
 									<c:if test="${statusList != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="dataDictionary" items="${statusList}">
@@ -45,7 +45,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">所属平台</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<select name="queryFlatformId" class="form-control">
+								<select name="flatformId" class="form-control">
 									<c:if test="${flatFormList != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="dataDictionary" items="${flatFormList}">
@@ -61,11 +61,11 @@
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">一级分类</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-								<select id="queryCategoryLevel1" name="queryCategoryLevel1" class="form-control">
+								<select id="queryCategoryLevel1" name="categoryLevel1" class="form-control">
 									<c:if test="${categoryLevel1List != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="appCategory" items="${categoryLevel1List}">
-									   		<option <c:if test="${appCategory.id == queryCategoryLevel1 }">selected="selected"</c:if>
+									   		<option <c:if test="${appCategory.id == queryCategoryLevel1}">selected="selected"</c:if>
 									   		value="${appCategory.id}">${appCategory.categoryName}</option>
 									   </c:forEach>
 									</c:if>
@@ -78,7 +78,7 @@
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">二级分类</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
 							<input type="hidden" name="categorylevel2list" id="categorylevel2list"/>
-        						<select name="queryCategoryLevel2" id="queryCategoryLevel2" class="form-control">
+        						<select name="categoryLevel2" id="queryCategoryLevel2" class="form-control">
         							<c:if test="${categoryLevel2List != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="appCategory" items="${categoryLevel2List}">
@@ -94,7 +94,7 @@
 						<div class="form-group">
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">三级分类</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
-        						<select name="queryCategoryLevel3" id="queryCategoryLevel3" class="form-control">
+        						<select name="categoryLevel3" id="queryCategoryLevel3" class="form-control">
         							<c:if test="${categoryLevel3List != null }">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="appCategory" items="${categoryLevel3List}">
@@ -120,7 +120,7 @@
 				class="dataTables_wrapper form-inline dt-bootstrap no-footer">
 				<div class="row">
 					<div class="col-sm-12">
-					<a href="${pageContext.request.contextPath}/dev/flatform/app/appinfoadd" class="btn btn-success btn-sm">新增APP基础信息</a>
+					<a href="${pageContext.request.contextPath}/info/flatform/app/appinfoadd" class="btn btn-success btn-sm">新增APP基础信息</a>
 						<table id="datatable-responsive" class="table table-striped table-bordered dt-responsive nowrap dataTable no-footer dtr-inline collapsed"
 							cellspacing="0" width="100%" role="grid" aria-describedby="datatable-responsive_info" style="width: 100%;">
 							<thead>
@@ -262,4 +262,4 @@
 </div>
 <%@include file="common/footer.jsp"%>
 <script src="${pageContext.request.contextPath }/statics/localjs/rollpage.js"></script>
-<script src="${pageContext.request.contextPath }/statics/localjs/appinfolist.js"></script>
+<script src="${pageContext.request.contextPath }/statics/localjs/appinfolist1.js"></script>
