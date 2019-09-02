@@ -160,4 +160,28 @@ public class App_InfoController {
 		return JSONArray.toJSONString(result);
 	}
 	
+	
+	/**
+	 * 根据id查询app信息
+	 * @param id
+	 * @return
+	 */
+	@RequestMapping(value="/flatform/app/appinfomodify")
+	public String appVersionModify(@RequestParam String id,Model model) {
+		App_Info info=app_InfoService.getApp_InfoById(Integer.parseInt(id));
+		model.addAttribute("appInfo", info);
+		return "/developer/appinfomodify";
+	}
+	
+	@RequestMapping(value="/flatform/app/appinfomodifysave")
+	public String appinfomodifysave(App_Info info,HttpSession session) {
+		Dev_User user=(Dev_User) session.getAttribute("devUser");
+		info.setModifyBy(user.getId());
+		info.setModifyDate(new Date());
+		if(app_InfoService.modifyApp_Info(info)) {
+			return "redirect:/info/flatform/app/list";
+		}
+		return "/developer/appinfomodify";
+	}
+	
 }

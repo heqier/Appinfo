@@ -15,4 +15,8 @@ public interface App_InfoService {
 	public boolean addApp_Info(App_Info info);
 	//查询是否存在相同的APKName
 	public App_Info getApp_InfoByAPKName(@Param("APKName")String APKName);
+	//根据id查询app信息
+	public App_Info getApp_InfoById(Integer id);
+	//修改app信息
+	public boolean modifyApp_Info(App_Info info);
 }

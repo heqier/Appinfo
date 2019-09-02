@@ -63,4 +63,30 @@ public class App_InfoServiceImpl implements App_InfoService{
 		return info;
 	}
 
+	@Override
+	public App_Info getApp_InfoById(Integer id) {
+		App_Info info=null;
+		try {
+			info=infoMapper.getApp_InfoById(id);
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return info;
+	}
+
+	@Override
+	public boolean modifyApp_Info(App_Info info) {
+		boolean flag=false;
+		try {
+			if(infoMapper.modifyApp_Info(info)==1) {
+				flag=true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
 }

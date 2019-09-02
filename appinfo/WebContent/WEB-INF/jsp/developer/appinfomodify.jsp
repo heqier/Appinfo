@@ -6,7 +6,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>修改APP基础信息 <i class="fa fa-user"></i><small>${devUserSession.devName}</small></h2>
+        <h2>修改APP基础信息 <i class="fa fa-user"></i><small>${devUser.devName}</small></h2>
              <div class="clearfix"></div>
       </div>
       <div class="x_content">
@@ -127,7 +127,7 @@
 				<p><span style="color:red;font-weight: bold;">*注：1、大小不得超过500k.2、图片格式：jpg、png、jpeg、pneg</span></p>
 				</div>
 				<div id="logoFile"></div>
-				${fileUploadError }
+				${fileUploadError}
             </div>
           </div>
           <div class="form-group">
