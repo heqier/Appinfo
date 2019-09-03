@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.appinfodb.dao.app_version.App_VersionMapper">
+	<select id="getApp_VersionList" resultMap="App_VersionList">
+		SELECT version.*,info.softwareName as appName,dictionary.valueName as publishStatusName  FROM app_version version INNER JOIN app_info info INNER JOIN data_dictionary dictionary
+		WHERE  version.appId=#{id} and version.appId=info.id  and dictionary.typeName='发布状态' and version.publishStatus=dictionary.valueId
+	</select>
+	<insert id="addApp_Version" parameterType="App_Version">
+		INSERT INTO app_version(appId,versionNo,versionInfo,publishStatus,downloadLink,versionSize,createdBy,creationDate,apkLocPath,apkFileName) 
+		VALUES(#{appId},#{versionNo},#{versionInfo},#{publishStatus},#{downloadLink},#{versionSize},#{createdBy},#{creationDate},#{apkLocPath},#{apkFileName})
+		 <selectKey keyProperty="id" order="AFTER" resultType="Integer">
+	      	SELECT LAST_INSERT_ID()
+	    </selectKey>
+	</insert>
+	<select id="App_VersionById" resultType="App_Version">
+		SELECT version.*,dictionary.valueName as publishStatusName  FROM app_version version INNER JOIN data_dictionary dictionary
+		WHERE  version.id=#{id} and dictionary.typeName='发布状态' and version.publishStatus=dictionary.valueId
+	</select>
+	<update id="modifyApp_Version" parameterType="App_Version">
+		UPDATE app_version SET versionNo=#{versionNo},versionSize=#{versionSize},modifyBy=#{modifyBy},modifyDate=#{modifyDate},
+		downloadLink=#{downloadLink},apkLocPath=#{apkLocPath},apkFileName=#{apkFileName} WHERE id=#{id}
+	</update>
+	<delete id="delApp_Version">
+		DELETE FROM app_version WHERE appId=#{appId}
+	</delete>
+	<resultMap type="App_Version" id="App_VersionList"></resultMap>
+</mapper>

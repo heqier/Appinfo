@@ -89,4 +89,32 @@ public class App_InfoServiceImpl implements App_InfoService{
 		return flag;
 	}
 
+	@Override
+	public boolean modifyApp_InfoByVersionId(Integer id, Integer versionId) {
+		boolean flag=false;
+		try {
+			if(infoMapper.modifyApp_InfoByVersionId(id, versionId)==1) {
+				flag=true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
+	@Override
+	public boolean delApp_Info(Integer id) {
+		boolean flag=false;
+		try {
+			if(infoMapper.delApp_Info(id)==1) {
+				flag=true;
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		return flag;
+	}
+
 }

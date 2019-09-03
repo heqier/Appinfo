@@ -262,4 +262,4 @@
 </div>
 <%@include file="common/footer.jsp"%>
 <script src="${pageContext.request.contextPath }/statics/localjs/rollpage.js"></script>
-<script src="${pageContext.request.contextPath }/statics/localjs/appinfolist.js"></script>
+<script src="${pageContext.request.contextPath }/statics/localjs/appinfolist2.js"></script>

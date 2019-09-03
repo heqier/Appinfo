@@ -56,9 +56,14 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT id,softwareName,APKName FROM app_info WHERE APKName=#{APKName}
 	</select>
 	<select id="getApp_InfoById" resultType="App_Info">
-		SELECT info.*,dictionary.valueName as statusName FROM app_info info 
-		inner join data_dictionary dictionary
-		where info.id=#{id} and info.`status` = dictionary.valueId AND dictionary.typeName = 'APP状态'
+		SELECT info.*,dictionary1.valueName as statusName,
+		(SELECT categoryName FROM app_category WHERE app_category.id=info.categoryLevel1) as categoryLevel1Name,
+		(SELECT categoryName FROM app_category WHERE app_category.id=info.categoryLevel2) as categoryLevel2Name,
+		(SELECT categoryName FROM app_category WHERE app_category.id=info.categoryLevel3) as categoryLevel3Name,
+		dictionary2.valueName as flatformName
+		FROM app_info info inner join data_dictionary dictionary1 inner join data_dictionary dictionary2
+		where info.id=#{id} and info.`status` = dictionary1.valueId AND dictionary1.typeName = 'APP状态' 
+		and info.`status` = dictionary2.valueId AND dictionary2.typeName = '所属平台'
 	</select>
 	<update id="modifyApp_Info" parameterType="App_Info">
 		UPDATE app_info 
@@ -78,5 +83,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 	<if test="modifyDate!=null and modifyDate!=''">modifyDate=#{modifyDate},</if>
 		 </trim>
 	</update>
+	<update id="modifyApp_InfoByVersionId">
+		UPDATE app_info SET versionId=#{versionId} WHERE id=#{id}
+	</update>
+	<delete id="delApp_Info">
+		DELETE FROM app_info WHERE id=#{id}
+	</delete>
 	<resultMap type="App_Info" id="App_InfoList"></resultMap>
 </mapper>

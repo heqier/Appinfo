@@ -56,7 +56,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="appVersion" items="${appVersionList }" varStatus="status">
+							<c:forEach var="appVersion" items="${appVersionList}" varStatus="status">
 								<tr role="row" class="odd">
 									<td tabindex="0" class="sorting_1">${appVersion.appName}</td>
 									<td>${appVersion.versionNo }</td>
@@ -65,7 +65,7 @@
 									<td>
 									<a href="${appVersion.downloadLink }">${appVersion.apkFileName }</a>
 									</td>
-									<td><fmt:formatDate value="${appVersion.modifyDate }" pattern="yyyy-MM-dd"/></td>
+									<td><fmt:formatDate value="${appVersion.modifyDate}" pattern="yyyy-MM-dd"/></td>
 								</tr>
 							</c:forEach>
 						</tbody>
@@ -151,4 +151,4 @@
   </div>
 </div>
 <%@include file="common/footer.jsp"%>
-<script src="${pageContext.request.contextPath }/statics/localjs/appversionmodify.js"></script>
+<script src="${pageContext.request.contextPath }/statics/localjs/appversionmodify1.js"></script>

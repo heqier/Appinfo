@@ -6,7 +6,7 @@
   <div class="col-md-12 col-sm-12 col-xs-12">
     <div class="x_panel">
       <div class="x_title">
-        <h2>新增APP版本信息 <i class="fa fa-user"></i><small>${devUserSession.devName}</small></h2>
+        <h2>新增APP版本信息 <i class="fa fa-user"></i><small>${devUser.devName}</small></h2>
             <div class="clearfix"></div>
       </div>
       <div class="x_title">
@@ -56,7 +56,7 @@
 							</tr>
 						</thead>
 						<tbody>
-							<c:forEach var="appVersion" items="${appVersionList }" varStatus="status">
+							<c:forEach var="appVersion" items="${appVersionList}" varStatus="status">
 								<tr role="row" class="odd">
 									<td tabindex="0" class="sorting_1">${appVersion.appName}</td>
 									<td>${appVersion.versionNo }</td>
@@ -85,7 +85,7 @@
         <div class="x_content" style="display: block;">
          <br>
         <form class="form-horizontal form-label-left" action="addversionsave" method="post" enctype="multipart/form-data">
-           <input type="hidden" name="appId" name="appId" value="${appVersion.appId}">
+           <input type="hidden" name="appId" id="appId" value="${appId}">
           <div class="item form-group">
             <label class="control-label col-md-3 col-sm-3 col-xs-12" for="name">版本号 <span class="required">*</span>
             </label>
@@ -124,7 +124,7 @@
             </label>
             <div class="col-md-6 col-sm-6 col-xs-12">
             <input type="file" class="form-control col-md-7 col-xs-12" name="a_downloadLink" id="a_downloadLink"  required="required"/>
-            ${fileUploadError }
+            ${fileUploadError}
             </div>
           </div>
           <div class="ln_solid"></div>
@@ -141,4 +141,4 @@
   </div>
 </div>
 <%@include file="common/footer.jsp"%>
-<script src="${pageContext.request.contextPath }/statics/localjs/appversionadd.js"></script>
+<script src="${pageContext.request.contextPath }/statics/localjs/appversionadd1.js"></script>
