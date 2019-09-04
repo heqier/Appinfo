@@ -9,7 +9,11 @@
 <body>
 	<div align="center">
 		<h1>App信息管理平台</h1>
+<<<<<<< HEAD
 		<p><a href="${pageContext.request.contextPath }/manger/login">后台管理系统入口</a></p>
+=======
+		<p><a href="#">后台管理系统入口</a></p>
+>>>>>>> branch 'master' of https://github.com/heqier/Appinfo.git
 		<p><a href="${pageContext.request.contextPath }/dev/login">App开发者平台</a></p>
 	</div>
 </body>
