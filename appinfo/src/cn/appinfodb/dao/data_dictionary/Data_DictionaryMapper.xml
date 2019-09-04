@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.appinfodb.dao.data_dictionary.Data_DictionaryMapper">
+	<select id="flatFormList" resultMap="Data_DictionaryList">
+		SELECT id,valueId,valueName FROM data_dictionary WHERE typeName='所属平台'
+	</select>
+	<select id="statusList" resultMap="Data_DictionaryList">
+		SELECT id,valueId,valueName FROM data_dictionary WHERE typeName='APP状态'
+	</select>
+	<resultMap type="Data_Dictionary" id="Data_DictionaryList"></resultMap>
+</mapper>
