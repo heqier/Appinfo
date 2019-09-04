@@ -63,7 +63,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		dictionary2.valueName as flatformName
 		FROM app_info info inner join data_dictionary dictionary1 inner join data_dictionary dictionary2
 		where info.id=#{id} and info.`status` = dictionary1.valueId AND dictionary1.typeName = 'APP状态' 
-		and info.`status` = dictionary2.valueId AND dictionary2.typeName = '所属平台'
+		and info.flatformId = dictionary2.valueId AND dictionary2.typeName = '所属平台'
 	</select>
 	<update id="modifyApp_Info" parameterType="App_Info">
 		UPDATE app_info 
@@ -79,6 +79,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		 	<if test="categoryLevel2!=null and categoryLevel2!=''">categoryLevel2=#{categoryLevel2},</if>
 		 	<if test="categoryLevel3!=null and categoryLevel3!=''">categoryLevel3=#{categoryLevel3},</if>
 		 	<if test="downloads!=null and downloads!=''">downloads=#{downloads},</if>
+		 	<if test="onSaleDate!=null and onSaleDate!=''">onSaleDate=#{onSaleDate},</if>
+		 	<if test="offSaleDate!=null and offSaleDate!=''">offSaleDate=#{offSaleDate},</if>
 		 	<if test="modifyBy!=null and modifyBy!=''">modifyBy=#{modifyBy},</if>
 		 	<if test="modifyDate!=null and modifyDate!=''">modifyDate=#{modifyDate},</if>
 		 </trim>

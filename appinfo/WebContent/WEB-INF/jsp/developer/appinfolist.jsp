@@ -62,7 +62,7 @@
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">一级分类</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
 								<select id="queryCategoryLevel1" name="categoryLevel1" class="form-control">
-									<c:if test="${categoryLevel1List != null }">
+									<c:if test="${categoryLevel1List != null}">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="appCategory" items="${categoryLevel1List}">
 									   		<option <c:if test="${appCategory.id == queryCategoryLevel1}">selected="selected"</c:if>
@@ -79,10 +79,10 @@
 							<div class="col-md-6 col-sm-6 col-xs-12">
 							<input type="hidden" name="categorylevel2list" id="categorylevel2list"/>
         						<select name="categoryLevel2" id="queryCategoryLevel2" class="form-control">
-        							<c:if test="${categoryLevel2List != null }">
+        							<c:if test="${categoryLevel2List != null}">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="appCategory" items="${categoryLevel2List}">
-									   		<option <c:if test="${appCategory.id == queryCategoryLevel2 }">selected="selected"</c:if>
+									   		<option <c:if test="${appCategory.id == queryCategoryLevel2}">selected="selected"</c:if>
 									   		value="${appCategory.id}">${appCategory.categoryName}</option>
 									   </c:forEach>
 									</c:if>
@@ -95,10 +95,10 @@
 							<label class="control-label col-md-3 col-sm-3 col-xs-12">三级分类</label>
 							<div class="col-md-6 col-sm-6 col-xs-12">
         						<select name="categoryLevel3" id="queryCategoryLevel3" class="form-control">
-        							<c:if test="${categoryLevel3List != null }">
+        							<c:if test="${categoryLevel3List != null}">
 									   <option value="">--请选择--</option>
 									   <c:forEach var="appCategory" items="${categoryLevel3List}">
-									   		<option <c:if test="${appCategory.id == queryCategoryLevel3 }">selected="selected"</c:if>
+									   		<option <c:if test="${appCategory.id == queryCategoryLevel3}">selected="selected"</c:if>
 									   		value="${appCategory.id}">${appCategory.categoryName}</option>
 									   </c:forEach>
 									</c:if>

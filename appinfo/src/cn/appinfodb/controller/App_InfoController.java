@@ -87,7 +87,7 @@ public class App_InfoController {
 		model.addAttribute("currentPageNo", currentPage);
 		model.addAttribute("totalPageCount", totalPageCount);
 		return "/developer/appinfolist";
-	}
+	} 
 
 	// 跳转到add页面
 	@RequestMapping(value = "/flatform/app/appinfoadd")
@@ -179,6 +179,12 @@ public class App_InfoController {
 		return "/developer/appinfomodify";
 	}
 
+	/**
+	 * 修改app信息
+	 * @param info
+	 * @param session
+	 * @return
+	 */
 	@RequestMapping(value = "/flatform/app/appinfomodifysave")
 	public String appinfomodifysave(App_Info info, HttpSession session) {
 		Dev_User user = (Dev_User) session.getAttribute("devUser");
@@ -190,6 +196,12 @@ public class App_InfoController {
 		return "/developer/appinfomodify";
 	}
 
+	/**
+	 * 查看app信息
+	 * @param appinfoid
+	 * @param model
+	 * @return
+	 */
 	@RequestMapping(value = "/flatform/app/appview/{appinfoid}")
 	public String appview(@PathVariable Integer appinfoid, Model model) {
 		App_Info info = app_InfoService.getApp_InfoById(appinfoid);
@@ -199,6 +211,11 @@ public class App_InfoController {
 		return "/developer/appinfoview";
 	}
 
+	/**
+	 * 删除app信息
+	 * @param id
+	 * @return
+	 */
 	@RequestMapping(value = "/flatform/app/delapp.json")
 	@ResponseBody
 	public Object delapp(Integer id) {
@@ -207,6 +224,33 @@ public class App_InfoController {
 			result.put("delResult", "true");
 		}else {
 			result.put("delResult", "false");
+		}
+		return JSONArray.toJSONString(result);
+	}
+	
+	@RequestMapping(value = "/flatform/app/{appId}/sale.json")
+	@ResponseBody
+	public Object sale(@PathVariable Integer appId) {
+		App_Info info = app_InfoService.getApp_InfoById(appId);
+		HashMap<String, String> result = new HashMap<String, String>();
+		if(info.getStatus()==2||info.getStatus()==5) {
+			info.setStatus(4);
+			info.setOnSaleDate(new Date());
+		}else if(info.getStatus()==4) {
+			info.setStatus(5);
+			info.setOffSaleDate(new Date());
+		}
+		try {
+			if(app_InfoService.modifyApp_Info(info)) {
+				result.put("resultMsg", "success");
+			}else {
+				result.put("resultMsg", "failed");
+			}
+			result.put("errorCode", "0");
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+			result.put("errorCode", "exception000001");
 		}
 		return JSONArray.toJSONString(result);
 	}
