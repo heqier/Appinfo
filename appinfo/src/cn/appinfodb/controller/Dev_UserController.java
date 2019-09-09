@@ -61,7 +61,11 @@ public class Dev_UserController {
 	@RequestMapping(value="/logout")
 	public String logout(HttpSession session) {
 		session.removeAttribute("devUser");
+<<<<<<< HEAD
 		return "redirect:/index.jsp";
+=======
+		return "redirect:/dev/login";
+>>>>>>> branch 'master' of https://github.com/heqier/Appinfo.git
 	}
 	
 	@RequestMapping(value="/flatform/app/list")

@@ -24,6 +24,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		category1.id = info.categoryLevel1 and
 		category2.id = info.categoryLevel2 and
 		category3.id = info.categoryLevel3
+<<<<<<< HEAD
 		<if test="status!=null and status!=''">and info.status=#{status}</if>
 		<if test="softwareName!=null and softwareName!=''">and info.softwareName LIKE CONCAT('%',#{softwareName},'%')</if>
 		<if test="status!=null and status!=''">and info.`status`=#{status}</if>

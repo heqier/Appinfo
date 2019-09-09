@@ -43,6 +43,7 @@ public class Backend_UserController {
 	public String main() {
 		return "/backend/main";
 	}
+<<<<<<< HEAD
 	/**
 	 * ×¢Ïú
 	 * @param session
@@ -53,5 +54,7 @@ public class Backend_UserController {
 		session.removeAttribute("user");
 		return "redirect:/index.jsp";
 	}
+=======
+>>>>>>> branch 'master' of https://github.com/heqier/Appinfo.git
 }
 

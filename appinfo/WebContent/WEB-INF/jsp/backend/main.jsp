@@ -4,9 +4,20 @@
 <div class="page-title">
 	<div class="title_left">
 		<h3>
+<<<<<<< HEAD
 			欢迎你：${user.userCode }<strong> | 角色：${user.userName }</strong>
 			欢迎你：${userSession.userName }<strong> | 角色：${userSession.userTypeName }</strong>
 			</h3>
+=======
+			<h3>
+<<<<<<< HEAD
+			欢迎你：${user.userCode }<strong> | 角色：${user.userName }</strong>
+=======
+			欢迎你：${userSession.userName }<strong> | 角色：${userSession.userTypeName }</strong>
+>>>>>>> branch 'master' of https://github.com/heqier/Appinfo.git
+			</h3>
+		</h3>
+>>>>>>> branch 'master' of https://github.com/heqier/Appinfo.git
 	</div>
 </div>
 <div class="clearfix"></div>        

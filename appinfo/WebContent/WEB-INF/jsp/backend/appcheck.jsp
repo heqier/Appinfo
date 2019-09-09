@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 d<%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@include file="common/header.jsp"%>
@@ -7,6 +8,17 @@ d<%@ page language="java" contentType="text/html; charset=UTF-8"
     <div class="x_panel">
       <div class="x_title">
         <h2>查看并审核APP信息 <i class="fa fa-user"></i>${user.userName}</small></h2>
+=======
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
+<%@include file="common/header.jsp"%>
+<div class="clearfix"></div>
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="x_panel">
+      <div class="x_title">
+        <h2>查看并审核APP信息 <i class="fa fa-user"></i>${userSession.userName}</small></h2>
+>>>>>>> branch 'master' of https://github.com/heqier/Appinfo.git
              <div class="clearfix"></div>
       </div>
       <div class="x_title">
